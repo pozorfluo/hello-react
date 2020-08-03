@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Square, SquareFn } from './Square.js';
+import { Square, SquareFn, TextField } from './Square.js';
 import { render } from '@testing-library/react';
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
 
         {/* <Square user={user} /> */}
         <SquareFn user={user} />
+        <TextField />
       </header>
     </div>
   );

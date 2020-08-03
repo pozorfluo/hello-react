@@ -29,15 +29,15 @@ export const SquareFn = (props) => {
 
   useEffect(() => {
     function tick() {
-        setTime(new Date());
+      setTime(new Date());
     }
 
     const timer_id = setInterval(tick, 1000);
     document.title = `${count} times`;
 
     return () => {
-        clearInterval(timer_id);
-    }
+      clearInterval(timer_id);
+    };
   });
 
   return (
@@ -49,12 +49,28 @@ export const SquareFn = (props) => {
       <button onClick={() => setToggle(toggle ^ 1)}>
         {toggle ? props.user.firstname : reverseStr(props.user.firstname)}
       </button>
-      <h2 style={{color: toggle ? 'hotpink' : 'dodgerblue'}} onClick={() => setTime(new Date())}>
+      <h2
+        style={{ color: toggle ? 'hotpink' : 'dodgerblue' }}
+        onClick={() => setTime(new Date())}
+      >
         {time.toLocaleTimeString()}
       </h2>
-
     </React.Fragment>
   );
 };
 
+export const TextField = (props) => {
+  const [input, setInput] = useState('');
+
+  return (
+    <React.Fragment>
+      <label for="field">{input}</label>
+      <input
+        onInput={(event) => setInput(event.target.value)}
+        name="field"
+        type="text"
+      />
+    </React.Fragment>
+  );
+};
 // export { Square, SquareFn };
