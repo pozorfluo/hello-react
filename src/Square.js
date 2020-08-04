@@ -12,7 +12,7 @@ export const LetterList = (props) => {
   const [id] = useState(props.id);
   console.log('Rendering LetterList-' + id);
 
-  const char_list = props.word.split('').map((c) => <li>{c}</li>);
+  const char_list = props.word.split('').map((char, i) => <li key={i}>{char}</li>);
 
   return (
     <React.Fragment>
