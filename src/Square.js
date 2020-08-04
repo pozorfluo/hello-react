@@ -14,17 +14,18 @@ export const Square = (props) => {
   if (props.user) {
     greetings = formatName(props.user);
   }
-
+  console.log(props);
   return (
     <React.Fragment>
-      <h1>Howdy, {props.toggle ? greetings : reverseStr(greetings)} ?</h1>
+      <h1>Howdy, {props.reverse ? greetings : reverseStr(greetings)} ?</h1>
+      <h3>reverse : {props.reverse}</h3>
     </React.Fragment>
   );
 };
 
 export const SquareFn = (props) => {
   const [count, setCount] = useState(0);
-  const [toggle, setToggle] = useState(1);
+  const [toggle, setToggle] = useState(0);
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -42,13 +43,13 @@ export const SquareFn = (props) => {
 
   return (
     <React.Fragment>
-      <Square user={props.user} reverse={toggle} />
       <button onClick={() => setCount(count + 1)}>
         {props.user.firstname}
       </button>
       <button onClick={() => setToggle(toggle ^ 1)}>
         {toggle ? props.user.firstname : reverseStr(props.user.firstname)}
       </button>
+      <Square user={props.user} reverse={toggle} />
       <h2
         style={{ color: toggle ? 'hotpink' : 'dodgerblue' }}
         onClick={() => setTime(new Date())}
