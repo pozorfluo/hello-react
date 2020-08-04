@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {Count} from './Count.js';
 // import { SquareFn, TextField } from './Square.js';
 import {Temperature} from './BoilingTemp.js';
 // import { render } from '@testing-library/react';
@@ -17,6 +18,7 @@ function App() {
         <TextField id="01"/>
         <TextField id="02"/> */}
         <Temperature />
+        <Count />
       </header>
     </div>
   );

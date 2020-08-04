@@ -14,7 +14,7 @@ function toFahrenheit(celsius) {
 }
 
 export const IsItBoiling = (props) => {
-  const verdict = props.celsius >= 100 ? '˳˚॰°ₒ৹๐' : '_______';
+  const verdict = props.celsius >= 100 ? '˳˚॰°ₒ৹๐' : '';
   return (
     <FancyBox color="blue">
       <h2>{verdict}</h2>
@@ -62,7 +62,7 @@ export const FancyBox = (props) => {
   return (
     <div
       style={{
-        height: '200px',
+        height: '100px',
         width: '200px',
         backgroundColor: props.color,
       }}
