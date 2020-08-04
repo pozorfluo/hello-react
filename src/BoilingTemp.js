@@ -15,7 +15,11 @@ function toFahrenheit(celsius) {
 
 export const IsItBoiling = (props) => {
   const verdict = props.celsius >= 100 ? '˳˚॰°ₒ৹๐' : '_______';
-  return <h2>{verdict}</h2>;
+  return (
+    <FancyBox color="blue">
+      <h2>{verdict}</h2>
+    </FancyBox>
+  );
 };
 
 export const TemperatureInput = (props) => {
@@ -51,5 +55,19 @@ export const Temperature = (props) => {
       />
       <IsItBoiling celsius={parseFloat(celsius)} />
     </React.Fragment>
+  );
+};
+
+export const FancyBox = (props) => {
+  return (
+    <div
+      style={{
+        height: '200px',
+        width: '200px',
+        backgroundColor: props.color,
+      }}
+    >
+      {props.children}
+    </div>
   );
 };
