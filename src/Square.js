@@ -8,14 +8,35 @@ function reverseStr(str) {
   return str.split('').reverse().join('');
 }
 
+function h32_fnva1(str) {
+  let h = 0x811c9dc5;
+  let i = str.length;
+
+  while (i--) {
+    h ^= str.charCodeAt(i);
+    h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24);
+  }
+  return h >>> 0;
+}
+
 export const LetterList = (props) => {
   const [id] = useState(props.id);
   console.log('Rendering LetterList-' + id);
 
-  const char_list = props.word.split('').map((char, i) => <li key={i}>{char}</li>);
+  /**
+   * @todo Use a id that uniquely identify list item for more complicated case.
+   *       It looks fine here because only the position in the list is stable.
+   */
+
+  const char_list = props.word.split('').map((char, i) => (
+    <li key={i + char}>
+      {char} : {h32_fnva1(char + i)}
+    </li>
+  ));
 
   return (
     <React.Fragment>
+      <h4>{h32_fnva1(props.word)}</h4>
       <ul style={{ listStyleType: 'none' }}>{char_list}</ul>
     </React.Fragment>
   );
@@ -80,7 +101,7 @@ export const SquareFn = (props) => {
         onClick={() => setTime(new Date())}
       >
         {time.toLocaleTimeString()}
-      <LetterList word={time.toLocaleTimeString()} id="00" />
+        <LetterList word={time.toLocaleTimeString()} id="00" />
       </h2>
     </React.Fragment>
   );
