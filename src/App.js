@@ -4,6 +4,7 @@ import {Todo} from './Todo.js';
 // import { SquareFn, TextField } from './Square.js';
 import {Temperature} from './BoilingTemp.js';
 // import { render } from '@testing-library/react';
+import {TicTacToe} from './TicTacToe.js'
 
 function App() {
 //   const user = { firstname: 'Kakana', lastname: 'Lambert' };
@@ -17,7 +18,8 @@ function App() {
         <TextField id="00"/>
         <TextField id="01"/>
         <TextField id="02"/> */}
-        <Temperature/>
+        <TicTacToe />
+        {/* <Temperature/> */}
         <Todo />
       </header>
     </div>
