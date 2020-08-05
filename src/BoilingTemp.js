@@ -53,7 +53,7 @@ export const Temperature = () => {
   const fahrenheit = temp.scale === 'c' ? toFahrenheit(temp.value) : temp.value;
 
   return (
-    <React.Fragment>
+    <div>
       <TemperatureInput
         scale="c"
         temp={celsius}
@@ -71,7 +71,7 @@ export const Temperature = () => {
         }}
       />
       <IsItBoiling celsius={parseFloat(celsius)} />
-    </React.Fragment>
+    </div>
   );
 };
 
@@ -80,8 +80,9 @@ export const FancyBox = (props) => {
     <div
       style={{
         height: '100px',
-        width: '200px',
+        width: '100%',
         backgroundColor: props.color,
+        borderRadius: '4px'
       }}
     >
       {props.children}

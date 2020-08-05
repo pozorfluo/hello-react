@@ -11,15 +11,73 @@
   animation: App-logo-spin infinite 20s linear;
 }
 
-.App-header {
-  background-color: #282c34;
+.App-body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
+  margin-left: 25vw;
+  padding: 0;
+}
+
+.sidebar {
+    height: 100%;
+    width: 25vw;
+    position: fixed; 
+    z-index: 1;
+    top: 0; 
+    left: 0;
+    overflow-x: hidden; 
+    padding: 0;
+    margin: 0.5rem;
+    border-right: 3px dashed lightblue;
+    direction: rtl;
+  }
+.sidebar .item {
+    direction: ltr;
+    /* line-height: 2.5rem; */
+    height: 2.5rem;
+    background-color: rgb(206, 235, 245);
+    margin-bottom: 0.2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0.5rem 0.5rem 0.5rem;
+    padding-left: 0.5rem;
+    border-radius: 4px;
+}
+
+fieldset, input{
+    padding : 1rem;
+    margin-top: 0.5rem;
+    border: 3px dashed lightblue;
+    font-size: 1rem;
+}
+
+.x-button {
+    /* position: absolute;
+    right : 0; */
+    align-self: stretch;
+    
+    /* font-size: 1rem; */
+}
+
+button {
+    all: unset;
+    border-radius: 4px;
+    background-color: rgb(132, 176, 190);
+    color: white;
+    font-weight: 900;
+    padding: 0.5rem 1rem;
+}
+button:hover{
+    background-color: lightblue;
+}
+button:active{
+    background-color: rgb(112, 159, 175);
 }
 
 .App-link {
