@@ -24,8 +24,8 @@ export const IsItBoiling = (props) => {
 };
 
 IsItBoiling.propTypes = {
-    celsius : PropTypes.number.isRequired,
-}
+  celsius: PropTypes.number.isRequired,
+};
 
 export const TemperatureInput = (props) => {
   return (
@@ -33,7 +33,7 @@ export const TemperatureInput = (props) => {
       <legend>Enter temperature in {scales[props.scale]}:</legend>
       <input
         value={props.temp}
-        onInput={(event) => props.onChange(event.target.value)}
+        onChange={(event) => props.onChange(event.target.value)}
       />
       {/* <input value={props.temp} onInput={(event) => setTemp(event.target.value)} /> */}
     </fieldset>
@@ -41,13 +41,13 @@ export const TemperatureInput = (props) => {
 };
 
 TemperatureInput.propTypes = {
-    scale : PropTypes.string.isRequired,
-    temp : PropTypes.string.isRequired,
-    onChange : PropTypes.func.isRequired,
-}
+  scale: PropTypes.string.isRequired,
+  temp: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export const Temperature = () => {
-  const [temp, setTemp] = useState({ scale: 'c', value: '' });
+  const [temp, setTemp] = useState({ scale: 'c', value: 0 });
 
   const celsius = temp.scale === 'f' ? toCelsius(temp.value) : temp.value;
   const fahrenheit = temp.scale === 'c' ? toFahrenheit(temp.value) : temp.value;
@@ -57,18 +57,23 @@ export const Temperature = () => {
       <TemperatureInput
         scale="c"
         temp={celsius}
-        onChange={(value) => setTemp({ scale: 'c', value: value })}
+        onChange={(value) => {
+          value = (value !== null && value !== '') ? value : 0;
+          setTemp({ scale: 'c', value: parseFloat(value) });
+        }}
       />
       <TemperatureInput
         scale="f"
-        temp={fahrenheit}
-        onChange={(value) => setTemp({ scale: 'f', value: value })}
+        temp={parseFloat(fahrenheit)}
+        onChange={(value) => {
+          value = (value !== null && value !== '') ? value : 0;
+          setTemp({ scale: 'cf', value: parseFloat(value) });
+        }}
       />
       <IsItBoiling celsius={parseFloat(celsius)} />
     </React.Fragment>
   );
 };
-
 
 export const FancyBox = (props) => {
   return (
@@ -85,6 +90,6 @@ export const FancyBox = (props) => {
 };
 
 FancyBox.propTypes = {
-    color : PropTypes.string.isRequired,
-    children  : PropTypes.element,
-}
+  color: PropTypes.string.isRequired,
+  children: PropTypes.element,
+};
