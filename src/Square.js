@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 function formatName(user) {
   return user.firstname + ' ' + user.lastname;
@@ -42,6 +43,11 @@ export const LetterList = (props) => {
   );
 };
 
+LetterList.propTypes = {
+    id : PropTypes.string.isRequired,
+    word : PropTypes.string.isRequired,
+}
+
 export const Square = (props) => {
   const [id] = useState(props.id);
   console.log('Rendering Square-' + id);
@@ -66,6 +72,11 @@ export const Square = (props) => {
     );
   }
 };
+
+SquareFn.propTypes = {
+    id : PropTypes.string.isRequired,
+    user : PropTypes.object,
+}
 
 export const SquareFn = (props) => {
   const [count, setCount] = useState(0);
@@ -107,6 +118,11 @@ export const SquareFn = (props) => {
   );
 };
 
+SquareFn.propTypes = {
+    id : PropTypes.string.isRequired,
+    user : PropTypes.object.isRequired,
+}
+
 export const TextField = (props) => {
   const [input, setInput] = useState('');
   const [id] = useState(props.id);
@@ -114,7 +130,7 @@ export const TextField = (props) => {
 
   return (
     <React.Fragment>
-      <label for="field">{input}</label>
+      <label htmlFor="field">{input}</label>
       <input
         onInput={(event) => setInput(event.target.value)}
         name="field"
@@ -123,4 +139,9 @@ export const TextField = (props) => {
     </React.Fragment>
   );
 };
+
+TextField.propTypes = {
+    id : PropTypes.string.isRequired,
+    user : PropTypes.object.isRequired,
+}
 // export { Square, SquareFn };

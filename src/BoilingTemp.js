@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const scales = {
   c: '°C',
@@ -22,6 +23,10 @@ export const IsItBoiling = (props) => {
   );
 };
 
+IsItBoiling.propTypes = {
+    celsius : PropTypes.number.isRequired,
+}
+
 export const TemperatureInput = (props) => {
   return (
     <fieldset>
@@ -35,7 +40,13 @@ export const TemperatureInput = (props) => {
   );
 };
 
-export const Temperature = (props) => {
+TemperatureInput.propTypes = {
+    scale : PropTypes.string.isRequired,
+    temp : PropTypes.string.isRequired,
+    onChange : PropTypes.func.isRequired,
+}
+
+export const Temperature = () => {
   const [temp, setTemp] = useState({ scale: 'c', value: '' });
 
   const celsius = temp.scale === 'f' ? toCelsius(temp.value) : temp.value;
@@ -58,6 +69,7 @@ export const Temperature = (props) => {
   );
 };
 
+
 export const FancyBox = (props) => {
   return (
     <div
@@ -71,3 +83,8 @@ export const FancyBox = (props) => {
     </div>
   );
 };
+
+FancyBox.propTypes = {
+    color : PropTypes.string.isRequired,
+    children  : PropTypes.element,
+}

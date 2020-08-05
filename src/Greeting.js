@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Greeting = (props) => {
     const formatted_list = props.list.map((entry, i) => (
@@ -11,3 +12,7 @@ export const Greeting = (props) => {
         <ul style={{ listStyleType :'none'}}>{formatted_list}</ul>
     );
 };
+
+Greeting.propTypes = {
+    list : PropTypes.array.isRequired,
+}
