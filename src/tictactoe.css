@@ -18,7 +18,8 @@ ol, ul {
 }
 
 .square {
-  background: #fff;
+  background: whitesmoke;
+  color: lightskyblue;
   float: left;
   font-size: 24px;
   font-weight: bold;
@@ -32,6 +33,11 @@ ol, ul {
   max-height: 16vw;
   max-width: 16vw;
   border: 4px dashed lightblue;
+}
+
+.square:hover{
+    color: white;
+    border-color: whitesmoke;
 }
 
 .square:focus {

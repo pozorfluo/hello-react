@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import {Todo} from './Todo.js';
+// import {Todo} from './Todo.js';
 // import { SquareFn, TextField } from './Square.js';
-import {Temperature} from './BoilingTemp.js';
+// import {Temperature} from './BoilingTemp.js';
 // import { render } from '@testing-library/react';
 import {TicTacToe} from './TicTacToe.js'
 
@@ -20,7 +20,7 @@ function App() {
         <TextField id="02"/> */}
         <TicTacToe />
         {/* <Temperature/> */}
-        <Todo />
+        {/* <Todo /> */}
       </header>
     </div>
   );
