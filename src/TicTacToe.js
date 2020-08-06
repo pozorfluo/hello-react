@@ -72,7 +72,6 @@ export const TicTacToe = () => {
   const [turn, setTurn] = useState(true);
   const [step, setStep] = useState(0);
 
-  console.log(step);
   const current = history[step][1];
   const winner = calculateWinner(current);
   const status = winner

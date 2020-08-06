@@ -50,6 +50,16 @@
     border-radius: 4px;
 }
 
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 15vw;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+}
+
 fieldset, input{
     padding : 1rem;
     margin-top: 0.5rem;
@@ -65,7 +75,10 @@ fieldset, input{
     /* font-size: 1rem; */
 }
 
-button {
+li {
+    list-style-type: none;
+}
+button, a {
     all: unset;
     border-radius: 4px;
     background-color: rgb(132, 176, 190);
@@ -73,10 +86,14 @@ button {
     font-weight: 900;
     padding: 0.5rem 1rem;
 }
-button:hover{
+a {
+    line-height: 2.5rem;
+    /* width: 100%; */
+}
+button:hover, a:hover{
     background-color: lightblue;
 }
-button:active{
+button:active, a:active{
     background-color: rgb(112, 159, 175);
 }
 

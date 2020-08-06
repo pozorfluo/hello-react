@@ -67,7 +67,7 @@ export const Temperature = () => {
         temp={parseFloat(fahrenheit)}
         onChange={(value) => {
           value = (value !== null && value !== '') ? value : 0;
-          setTemp({ scale: 'cf', value: parseFloat(value) });
+          setTemp({ scale: 'f', value: parseFloat(value) });
         }}
       />
       <IsItBoiling celsius={parseFloat(celsius)} />
