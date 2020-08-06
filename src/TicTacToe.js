@@ -72,30 +72,28 @@ export const TicTacToe = () => {
   const [turn, setTurn] = useState(true);
   const [step, setStep] = useState(0);
 
-  history = history.slice(0, step + 1);
-  const count = history.length;
-  const current = history[count - 1][1];
+  console.log(step);
+  const current = history[step][1];
   const winner = calculateWinner(current);
   const status = winner
     ? 'Winner : ' + winner
     : 'Next player : ' + (turn ? 'X' : 'O');
 
   const handleClick = (i) => {
+    history = history.slice(0, step + 1);
+    const count = history.length;
+    const current = history[count - 1][1];
     const squares = [...current];
-    if (winner || squares[i]) {
+    if (calculateWinner(current) || squares[i]) {
       return;
     }
     squares[i] = turn ? 'X' : 'O';
     const id = count ? history[count - 1][0] + 1 : 0;
     /** This looks like a good place to break the symmetry and just use push. */
     setHistory([...history, [id, squares]]);
-    // setHistory([...history.slice(0, step + 1), [id, squares]]);
     setStep(count);
     setTurn(!turn);
   };
-  // console.log('TicTacToe : step  #' + step);
-  // console.log('TicTacToe : turn  #' + turn);
-  // console.log('TicTacToe : count #' + count);
 
   const jumpTo = (step) => {
     setStep(step);
